@@ -5,21 +5,39 @@
     </div>
 
     <div class="search-area">
-      <el-input placeholder="搜索视频、番剧、UP主..." />
-      <el-button type="primary">搜索</el-button>
+      <el-input placeholder="搜索视频、番剧、UP主..." v-model="searchQuery" />
+      <el-button type="primary" @click="search">搜索</el-button>
     </div>
 
     <div class="actions-area">
-      <el-avatar :size="32" class="user-avatar"> U </el-avatar> <el-button text>登录</el-button>
+      <el-avatar :size="32" class="user-avatar"> U </el-avatar>
+      <el-button text @click="login">登录</el-button>
       <el-button text>动态</el-button>
       <el-button text>收藏</el-button>
-      <el-button type="primary">投稿</el-button>
+      <el-button type="primary" @click="upload">投稿</el-button>
     </div>
   </el-header>
 </template>
 
 <script setup lang="ts">
-// 目前不需要脚本逻辑
+import { ref } from 'vue'
+
+const searchQuery = ref('')
+
+const search = () => {
+  // 实现搜索逻辑
+  console.log('Searching for:', searchQuery.value)
+}
+
+const login = () => {
+  // 实现登录逻辑
+  console.log('Logging in...')
+}
+
+const upload = () => {
+  // 实现投稿逻辑
+  console.log('Uploading...')
+}
 </script>
 
 <style scoped>
@@ -27,10 +45,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff; /* 或 B 站的主题色 */
+  background-color: #fff;
   border-bottom: 1px solid var(--el-border-color-light);
-  padding: 0 20px; /* 调整内边距 */
-  height: 50px; /* B 站头部高度通常较小 */
+  padding: 0 20px;
+  height: 50px;
 }
 
 .logo-area {
@@ -40,14 +58,14 @@
   font-weight: bold;
 }
 .logo-img {
-  height: 30px; /* 调整 Logo 大小 */
+  height: 30px;
   margin-right: 10px;
 }
 
 .search-area {
   display: flex;
   align-items: center;
-  width: 40%; /* 调整搜索框宽度 */
+  width: 40%;
 }
 
 .search-area .el-input {
@@ -60,19 +78,10 @@
 }
 
 .actions-area > * {
-  margin-left: 15px; /* 调整右侧按钮间距 */
+  margin-left: 15px;
 }
 
 .user-avatar {
-  margin-left: 15px;
-  cursor: pointer;
-}
-
-/* 可以添加一些 Element Plus 按钮的样式微调 */
-.el-button--text {
-  color: var(--el-text-color-regular);
-}
-.el-button--text:hover {
-  color: var(--el-color-primary);
+  margin-right: 5px;
 }
 </style>
