@@ -18,6 +18,7 @@ import AppHeader from './components/AppHeader.vue' // 引入头部组件
 <style scoped>
 .app-container {
   min-height: 100vh; /* 确保容器至少占满整个视口高度 */
+  display: block;
 }
 
 /* .main-content 可以根据需要添加内边距等样式 */
@@ -28,6 +29,6 @@ import AppHeader from './components/AppHeader.vue' // 引入头部组件
 
 /* 覆盖 Element Plus 可能给 el-header 带来的默认 padding */
 .app-container > .el-header {
-  padding: 0;
+  /* padding: 0; */
 }
 </style>
